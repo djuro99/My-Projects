@@ -1,0 +1,43 @@
+<h1>Odgovori:</h1>
+{{#each answers}}
+{{#if accepted}}
+<h3><img src="../users/{{path}}" width="50" height="50"/><a type="button" href="/questions/profile/{{userID}}">{{username}}</a></h3>
+<p>{{content}}</p>
+<p>{{date}}</p>
+<p>Sprejet odgovor!</p>
+<h4>Komentarji:</h4>
+{{#each comments}}
+<h3><img src="../users/{{path}}" width="25" height="25"/><a type="button" href="/questions/profile/{{userID}}">{{username}}</a></h3>
+<p>{{commentContent}}</p>
+<p>{{date}}</p>
+{{/each}}
+<form action="/comments/fromAnswer/{{_id}}&{{questionID}}" method="post">
+    <textarea name="commentContent" placeholder="Komentiraj..." rows="10" cols="50" required></textarea>
+    <div class="tp">
+        <input type="submit" value="Dodaj komentar">
+    </div>
+</form>
+<hr>
+{{/if}}
+{{/each}}
+{{#each answers}}
+{{#unless accepted}}
+<h3><img src="../users/{{path}}" width="50" height="50"/><a type="button" href="/questions/profile/{{userID}}">{{username}}</a></h3>
+<p>{{content}}</p>
+<p>{{date}}</p>
+<h4>Komentarji:</h4>
+{{#each comments}}
+<h3><img src="../users/{{path}}" width="25" height="25"/><a type="button" href="/questions/profile/{{userID}}">{{username}}</a></h3>
+<p>{{commentContent}}</p>
+<p>{{date}}</p>
+{{/each}}
+<form action="/comments/fromAnswer/{{_id}}&{{questionID}}" method="post">
+    <textarea name="commentContent" placeholder="Komentiraj..." rows="10" cols="50" required></textarea>
+    <div class="tp">
+        <input type="submit" value="Dodaj komentar">
+    </div>
+</form>
+<hr>
+{{/unless}}
+{{/each}}
+<br><a type="button" href="/questions">Nazaj</a>

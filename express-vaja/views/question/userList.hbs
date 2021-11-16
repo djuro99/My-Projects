@@ -1,0 +1,27 @@
+<h1>Moja vprašanja:</h1>
+{{#each questions}}
+<h2>{{title}}</h2>
+<p>{{description}}</p>
+Oznaka: <b><i><ins>{{tags}}</ins></i></b>
+<p>{{date}}</p>
+<h4>Komentarji:</h4>
+{{#each comments}}
+<h3><img src="../users/{{path}}" width="25" height="25"/><a type="button" href="/questions/profile/{{userID}}">{{username}}</a></h3>
+<p>{{commentContent}}</p>
+<p>{{date}}</p>
+<a type="button" href="/comments/{{_id}}">Izbriši</a>
+{{/each}}
+<br>
+<p></p>
+<form action="/questions/myAnswers/{{_id}}" method="get">
+    <input type="submit" value="Prikaži odgovore" />
+</form>
+<form action="/questions/remove/{{_id}}">
+    <input type="submit" value="Izbriši" />
+</form>
+<hr>
+{{/each}}
+<br>
+<form action="../users/profile">
+    <input type="submit" value="Moj profil" />
+</form>

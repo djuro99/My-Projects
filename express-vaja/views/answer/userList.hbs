@@ -1,0 +1,26 @@
+<h1>Odgovori:</h1>
+{{#each answers}}
+<h3><img src="../../users/{{path}}" width="50" height="50"/><a type="button" href="/questions/profile/{{userID}}">{{username}}</a></h3>
+<p>{{content}}</p>
+<p>{{date}}</p>
+{{#if accepted}}
+<p>Sprejet odgovor!</p>
+{{/if}}
+<h4>Komentarji:</h4>
+{{#each comments}}
+<h3><img src="../../users/{{path}}" width="25" height="25"/><a type="button" href="/questions/profile/{{userID}}">{{username}}</a></h3>
+<p>{{commentContent}}</p>
+<p>{{date}}</p>
+<a type="button" href="/comments/fromAnswer/{{_id}}&{{qID}}">Izbriši</a>
+{{/each}}
+<br>
+<p></p>
+<form action="/answers/{{_id}}&{{questionID}}" method="get">
+    <input type="submit" value="Izberi odgovor" />
+</form>
+<form action="/answers/remove/{{_id}}&{{questionID}}" method="delete">
+    <input type="submit" value="Izbriši" />
+</form>
+{{/each}}
+<br>
+<br><a type="button" href="/questions/userList">Nazaj</a>

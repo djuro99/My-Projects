@@ -1,0 +1,27 @@
+<h1>Profil uporabnika</h1>
+{{#with user}}
+<h2>Slika: </h2>
+<img src="{{path}}" width="150" height="150"/>
+<form action="/users/image" method="post" enctype="multipart/form-data">
+    <input type="file" name="image">
+    <div class="tp">
+        <input type="submit" value="Izberi sliko">
+    </div>
+</form>
+<h2>Ime: </h2>
+<h3>{{username}}</h3>
+<h2>Mail: </h2>
+<h3>{{email}}</h3>
+<h2>Število vprašanj: </h2>
+<h3>{{questionCount}}</h3>
+<h2>Število odgovorov: </h2>
+<h3>{{answerCount}}</h3>
+<h2>Število izbranih odgovorov: </h2>
+<h3>{{acceptedCount}}</h3>
+{{/with}}
+
+<form action="/questions/userList">
+    <input type="submit" value="Moja vprašanja" />
+</form>
+<br><a type="button" href="/">Domov</a>
+<br><a type="button" href="logout">Odjava</a>

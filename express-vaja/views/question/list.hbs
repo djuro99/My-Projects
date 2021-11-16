@@ -1,0 +1,35 @@
+<h1>Vprašanja:</h1>
+{{#each questions}}
+<h3><img src="../users/{{path}}" width="50" height="50"/><a type="button" href="/questions/profile/{{userID}}">{{username}}</a></h3>
+<h2>{{title}}</h2>
+<p>{{description}}</p>
+Oznaka: <b><i><ins>{{tags}}</ins></i></b>
+<p>{{date}}</p>
+<form action="/questions/addAnswer/{{_id}}" method="get">
+    <input type="submit" value="Odgovori na vprašanje" />
+</form>
+<form action="/questions/{{_id}}" method="get">
+    <input type="submit" value="Prikaži odgovore" />
+</form>
+<h4>Komentarji:</h4>
+{{#each comments}}
+<h3><img src="../users/{{path}}" width="25" height="25"/><a type="button" href="/questions/profile/{{userID}}">{{username}}</a></h3>
+<p>{{commentContent}}</p>
+<p>{{date}}</p>
+{{/each}}
+<form action="/comments/{{_id}}" method="post">
+    <textarea name="commentContent" placeholder="Komentiraj..." rows="10" cols="50" required></textarea>
+    <div class="tp">
+        <input type="submit" value="Dodaj komentar">
+    </div>
+</form>
+<hr>
+{{/each}}
+<p>Išči vprašanja po oznaki</p>
+<form action="/questions/searchByTag" method="post">
+    <input type="text" name="tags" placeholder="Oznaka">
+    <div class="tp">
+        <input type="submit" value="Išči">
+    </div>
+</form>
+<br><a type="button" href="/">Nazaj</a>

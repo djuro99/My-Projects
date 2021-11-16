@@ -1,0 +1,9 @@
+<h1>Odgovori na vprašanje</h1>
+<form action="/answers" method="post">
+    <label for="question">ID vprašanja:</label><br>
+    <input id="question" type="text" name="questionID" value="{{id}}" readonly><br>
+    <textarea name="content" rows="20" cols="50" required></textarea>
+    <div class="tp">
+        <input type="submit" value="Odgovori">
+    </div>
+</form>
